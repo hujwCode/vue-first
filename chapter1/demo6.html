@@ -9,8 +9,8 @@
 
 
 <div id="app">
-    <hjw>
-
+    <hjw v-for="(item, index) in items" v-bind:item="item"ey="index">
+        
     </hjw>
 </div>
 
@@ -19,12 +19,12 @@
 <script src="https://cdn.jsdelivr.net/npm/vue@2.5.21/dist/vue.js"></script>
 <script>
     Vue.component("hjw",{
-        template:'<li>hello</li>'
+        props:['item'],
+        template:'<li>{{item}}</li>'
     });
     var vm = new Vue({
         el:"#app",
         data:{
-            message:'hello',
             items:["java","linux","spring"]
         },
         methods:{ //方法必须定义在vue的method中
