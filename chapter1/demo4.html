@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:v-bind="http://www.w3.org/1999/xhtml">
+<html lang="en" xmlns:v-on="http://www.w3.org/1999/xhtml">
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
@@ -9,9 +9,7 @@
 
 
 <div id="app">
-    <li v-for="(item,index) in items">
-        {{item.message}}--{{index}}
-    </li>
+    <button v-on:click="sayHi()">click</button>
 </div>
 
 
@@ -20,9 +18,13 @@
 <script>
     var vm = new Vue({
         el:"#app",
-        data:{},
-        method:{ //方法必须定义在vue的method中
-
+        data:{
+            message:'hello'
+        },
+        methods:{ //方法必须定义在vue的method中
+            sayHi:function () {
+                alert(this.message)
+            }
         }
     });
 
